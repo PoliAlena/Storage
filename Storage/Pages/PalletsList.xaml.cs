@@ -3,6 +3,7 @@ using Storage.Services;
 using Storage.ViewModels;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,9 +27,18 @@ namespace Storage.Pages
 
         private void GroupPalletsBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (DataContext is PalletsListViewModel vm) {
-                vm.GroupAndSort();
-            }        
+            try
+            {
+                if (DataContext is PalletsListViewModel vm)
+                {
+                    vm.GroupAndSort();
+                }
+            }
+            catch (Exception ex)
+            { 
+                MessageBox.Show("При группировке возникла ошибка: " + ex.Message);
+            }
+    
         }
     }
 }

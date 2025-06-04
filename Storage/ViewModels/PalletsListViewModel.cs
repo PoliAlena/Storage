@@ -23,6 +23,7 @@ namespace Storage.ViewModels
             try
             {
                 var dataService = new DataService();
+                //Базовое отображение всех паллет
                 var pallets = dataService.LoadPallets();
                 //3 паллеты, которые содержат коробки с наибольшим сроком годности, отсортированные по возрастанию объема
                 var top3 = pallets
@@ -57,6 +58,7 @@ namespace Storage.ViewModels
                 Pallets.Add(p);
 
             GroupedPallets.GroupDescriptions.Clear();
+            //Добавление описания к группам паллет с датой, по которой они сгруппированы
             GroupedPallets.GroupDescriptions.Add(new PropertyGroupDescription("FormattedExpiration"));
             GroupedPallets.View.Refresh();
         }
