@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace Storage.Services
 {
-    internal class DataService
+    public class DataService
     {
         private const string DataFile = "data.json";
 
