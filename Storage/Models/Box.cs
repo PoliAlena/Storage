@@ -27,7 +27,7 @@ namespace Storage.Models
         }
         public bool IsItFitsPalletSize(Pallet pallet)
         {
-            return Width <= pallet.Width && pallet.Depth <= pallet.Depth;
+            return Width <= pallet.Width && Depth <= pallet.Depth;
         }
         public string FormattedExpiration => ExpirationDate?.ToString("dd.MM.yyyy") ?? "Без срока";
     }

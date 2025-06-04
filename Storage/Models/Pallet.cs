@@ -18,8 +18,8 @@ namespace Storage.Models
         } 
         public override double Weight {
             get { 
-              double BoxecOnPalletWeight = Boxes.Sum(x => x.Weight);
-                return BoxecOnPalletWeight + 30;
+              double BoxesOnPalletWeight = Boxes.Sum(x => x.Weight);
+                return BoxesOnPalletWeight + 30;
             }
         }
         public double TotalPalletVolume { 

@@ -28,13 +28,19 @@ namespace Storage.Services
                 };
                 return JsonSerializer.Deserialize<List<Pallet>>(json: jsonData, options: jsonOptions);
             }
-            catch (JsonException ex) {
-                MessageBox.Show(ex.Message);
+            catch(FileNotFoundException ex)
+            {
+                MessageBox.Show("Файл не найден: " + ex.Message);
+                return new List<Pallet>();
+            }
+            catch (JsonException ex)
+            {
+                MessageBox.Show("Ошибка чтения JSON: " + ex.Message);
                 return new List<Pallet>();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Непредвиденная ошибка в работе: " + ex.Message);
                 return new List<Pallet>();
             }
 
